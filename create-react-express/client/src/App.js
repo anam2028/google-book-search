@@ -1,21 +1,27 @@
-import React, { Component } from "react";
-import logo from "./logo.svg";
-import "./App.css";
+import React from 'react';
+import {BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+// import {
+//     BrowserRouter as Router,
+//     Switch,
+//     Route,
+//     Link
+//   } from "react-router-dom";
+import Search from './pages/Search';
+import Saved from './pages/Saved';
+import Uhoh404 from './pages/Uhoh404';
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
-    );
-  }
+const App = () => {
+ return(
+     <Router>
+         <React.Fragment>
+             <Switch>
+                 < Route exact path = '/' component ={Search} />
+                 < Route exact path = '/search' component = {Search} />
+                 < Route exact path = '/saved' component = {Saved} />
+                 < Route component = {Uhoh404} />
+             </Switch>
+         </React.Fragment>
+     </Router>
+ )
 }
-
 export default App;
