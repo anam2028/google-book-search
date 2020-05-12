@@ -8,22 +8,23 @@ import { searchGoogleBooks, saveBook, getSavedBooks } from "../utils/API";
 
 class Search extends Component {
   state = {
-    searchTerm: "",
+    searchTerm: '',
     bookList: [],
     savedBookIds: [],
     error: null,
   };
 
-  handleInputChange = (event) => {
+  handleInputChange = event => {
     const { name, value } = event.target;
     this.setState({
       [name]: value,
     });
   };
 
-  handleFormSubmit = (event) => {
+  handleFormSubmit = event => {
     event.preventDefault();
-    if (this.state.searchTerm === "") {
+
+    if (this.state.searchTerm === '') {
       return this.setstate({ error: "Please put in a title." });
     }
 
@@ -39,14 +40,15 @@ class Search extends Component {
             description: book.volumeInfo.description,
             image: book.volumeInfo.imageLinks
               ? book.volumeInfo.imageLinks.thumbnail
-              : "",
+              : '',
           };
         });
-        return this.setState({ bookList: bookListCleaned, searchTerm: "" });
+        return this.setState({ bookList: bookListCleaned, searchTerm: '' });
       })
       .then(this.retrieveSavedBooks)
       .catch((err) => this.setState({ error: err }));
   };
+
   retrieveSavedBooks = () => {
     getSavedBooks()
       .then((res) => {
@@ -55,6 +57,7 @@ class Search extends Component {
       })
       .catch((err) => this.setState({ error: err }));
   };
+
   handleBookSaveBook = (bookId) => {
     const book = this.state.bookList.find(book.bookId === bookId);
     saveBook(book)
@@ -64,24 +67,25 @@ class Search extends Component {
       })
       .catch((err) => this.setState({ error: err }));
   };
+
   render() {
     return (
       <>
         <Jumbotran
           fluid
-          bg={"dark"}
-          color={"light"}
-          pageTitle={"Search For Books"}
+          bg={'dark'}
+          color={'light'}
+          pageTitle={'Search For Books'}
         />
         <Container>
           <Row>
             <Column xs={12} md={4}>
-              <Card title={"Search for a book"}>
+              <Card title={'Search for a book'}>
                 <form onSubmit={this.handleFormSubmit}>
                   <input
                     type="text"
                     className="form-control"
-                    placeholder="search for a book"
+                    placeholder="Search for a book"
                     onChange={this.handleInputChange}
                     value={this.state.searchTerm}
                     name="searchTerm"
