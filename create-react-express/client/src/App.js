@@ -1,11 +1,5 @@
 import React from 'react';
 import {BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-// import {
-//     BrowserRouter as Router,
-//     Switch,
-//     Route,
-//     Link
-//   } from "react-router-dom";
 import Search from './pages/Search';
 import Saved from './pages/Saved';
 import Uhoh404 from './pages/Uhoh404';
