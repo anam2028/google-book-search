@@ -2,7 +2,7 @@ import React from 'react';
 import Container from './Container';
 import Row from './Row';
 import Column from './Column';
-import { Navlink } from 'react-router-dom';
+import {NavLink } from 'react-router-dom';
 
 const Jumbotran = props => {
     return (
@@ -22,14 +22,14 @@ const Jumbotran = props => {
                 </Row>
                 <Row helper = {'justify-content-around'}>
                     <Column md={6}>
-                        <Navlink to='/search' className='btn btn-info btn-lg'>
+                        <NavLink to='/search' className='btn btn-info btn-lg'>
                             Search
-                        </Navlink>
+                        </NavLink>
                 </Column>
                 <Column md={6}>
-                        <Navlink to='/saved' className='btn btn-info btn-lg'>
+                        <NavLink to='/saved' className='btn btn-info btn-lg'>
                             Saved
-                        </Navlink>
+                        </NavLink>
                 </Column>
                 </Row>
             </Container>
